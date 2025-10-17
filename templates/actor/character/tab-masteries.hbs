@@ -1,0 +1,11 @@
+<section class="tab {{tabs.masteries.id}} {{tabs.masteries.cssClass}} scrollable"
+    id="masteries" data-tab="{{tabs.masteries.id}}"
+    data-group="{{tabs.masteries.group}}">
+
+<div class="masteries-container">
+    {{#each masteries as |mastery|}}
+        {{> "systems/ker-nethalas-fvtt/templates/actor/character/mastery-container.hbs" mastery=mastery }}
+    {{/each}}
+    
+    
+</section>

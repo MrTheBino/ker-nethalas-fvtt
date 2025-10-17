@@ -1,0 +1,42 @@
+<div class="resource flex-group-center">
+    <label for="system.health.value" class="resource-label">Health</label>
+    <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
+        <span> / </span>
+        <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
+    </div>
+</div>
+
+<div class="resource flex-group-center">
+    <label for="system.toughness.value" class="resource-label">Toughness</label>
+    <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.toughness.value" value="{{system.toughness.value}}" data-dtype="Number" />
+        <span> / </span>
+        <input type="text" name="system.toughness.max" value="{{system.toughness.max}}" data-dtype="Number" />
+    </div>
+</div>
+
+<div class="resource flex-group-center">
+    <label for="system.aether.value" class="resource-label">Aether</label>
+    <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.aether.value" value="{{system.aether.value}}" data-dtype="Number" />
+        <span> / </span>
+        <input type="text" name="system.aether.max" value="{{system.aether.max}}" data-dtype="Number" />
+    </div>
+</div>
+
+<div class="resource flex-group-center">
+    <label for="system.sanity.value" class="resource-label">Sanity</label>
+    <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.sanity.value" value="{{system.sanity.value}}" data-dtype="Number" />
+        <span> / </span>
+        <input type="text" name="system.sanity.max" value="{{system.sanity.max}}" data-dtype="Number" />
+    </div>
+</div>
+
+<div class="resource flex-group-center">
+    <label for="system.sanity.value" class="resource-label">Lightsources</label>
+    {{#each system.lightsources as |lightsource index|}}
+        <input type="checkbox" {{#if lightsource}} checked{{/if}} data-key="system.lightsources" data-index="{{index}}" class="actor-array-update"/>
+    {{/each}}
+</div>

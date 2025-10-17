@@ -1,0 +1,20 @@
+.character-main-container{
+    align-items: flex-start;
+}
+
+.main-left-container{
+    flex-grow: 0.5;
+    margin-right: 10px;
+}
+
+.skill_value{
+    max-width: 50px;
+}
+
+.skill_marked{
+    flex-grow: 0.1;
+}
+
+textarea{
+    width: 100%;
+}

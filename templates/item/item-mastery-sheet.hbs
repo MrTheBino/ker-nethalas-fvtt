@@ -1,0 +1,9 @@
+<section class="tab {{tabs.form.id}} {{tabs.form.cssClass}} scrollable" id="form" data-tab="{{tabs.form.id}}"
+    data-group="{{tabs.form.group}}">
+    <textarea name='system.shortDescription' placeholder="Description" rows="6">{{system.shortDescription}}</textarea>
+    {{> 'systems/ker-nethalas-fvtt/templates/item/parts/mastery-tier.hbs' tier=system.tier1 }}
+    {{> 'systems/ker-nethalas-fvtt/templates/item/parts/mastery-tier.hbs' tier=system.tier2 }}
+    {{> 'systems/ker-nethalas-fvtt/templates/item/parts/mastery-tier.hbs' tier=system.tier3 }}
+    {{> 'systems/ker-nethalas-fvtt/templates/item/parts/mastery-tier.hbs' tier=system.tier4 }}
+    {{> 'systems/ker-nethalas-fvtt/templates/item/parts/mastery-tier.hbs' tier=system.tier5 }}
+</section>

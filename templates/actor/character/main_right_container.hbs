@@ -1,0 +1,10 @@
+<h2>Skills</h2>
+<div class="grid grid-2col">
+    {{#each skills as |skill|}}
+        <div class="resource flexrow">
+            <label class="resource-label">{{skill.name}}</label>
+            <input type="text" name="system.value" value="{{skill.system.value}}" data-dtype="Number" class="skill_value item-editable-stat" data-item-stat="system.value" data-item-id='{{skill._id}}'/>
+            <input type="checkbox" {{#if skill.system.marked}} checked{{/if}} class="skill_marked item-editable-stat" data-item-stat="system.marked" data-item-id='{{skill._id}}'/>
+        </div>
+    {{/each}}
+</div>

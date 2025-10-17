@@ -1,0 +1,35 @@
+<div class="tier-row">
+    <label class='resource-label'>Tier {{tier.level}}</label>
+    <div class="flexrow">
+        <div class="tier-option">
+            <div "tier-option-row"><input type='text' name='system.tier{{tier.level}}.option1.name'
+                    value="{{tier.option1.name}}" data-dtype='String' placeholder="Name" /></div>
+            <div "tier-option-row">
+                <input type='text' name='system.tier{{tier.level}}.option1.actionType'
+                    value="{{tier.option1.actionType}}" data-dtype='String' placeholder="Action" />
+            </div>
+            <div "tier-option-row">
+                <input type='text' name='system.tier{{tier.level}}.option1.costValue'
+                    value="{{tier.option1.costValue}}" data-dtype='String' placeholder="Cost" />
+            </div>
+            <div "tier-option-row">
+                <textarea name='system.tier{{tier.level}}.option1.description' placeholder="Description">{{tier.option1.description}}</textarea>
+            </div>
+        </div>
+        <div class="tier-option">
+            <input type='text' name='system.tier{{tier.level}}.option2.name' value="{{tier.option2.name}}"
+                data-dtype='String' />
+            <div "tier-option-row">
+                <input type='text' name='system.tier{{tier.level}}.option2.actionType'
+                    value="{{tier.option2.actionType}}" data-dtype='String' placeholder="Action" />
+            </div>
+            <div "tier-option-row">
+                <input type='text' name='system.tier{{tier.level}}.option2.costValue'
+                    value="{{tier.option2.costValue}}" data-dtype='String' placeholder="Cost" />
+            </div>
+            <div "tier-option-row">
+                <textarea name='system.tier{{tier.level}}.option2.description' placeholder="Description">{{tier.option2.description}}</textarea>
+            </div>
+        </div>
+    </div>
+</div>

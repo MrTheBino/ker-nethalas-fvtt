@@ -1,0 +1,10 @@
+<div class="mastery-container">
+    <h2>{{mastery.name}}</h2>
+    <div class="tier-row">
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier1 mastery=mastery }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier2 mastery=mastery }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier3 mastery=mastery }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier4 mastery=mastery }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier5 mastery=mastery }}
+    </div>
+</div>

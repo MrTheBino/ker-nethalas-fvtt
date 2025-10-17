@@ -1,0 +1,24 @@
+<header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+        <div class="resources grid grid-2col">
+
+            <div class="resource flex-group-center">
+                <label for="system.attributes.level" class="resource-label">Level</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="system.level" value="{{system.level}}" data-dtype="Number" />
+                </div>
+            </div>
+
+            <div class="resource flex-group-center">
+                <label for="system.xp.value" class="resource-label">XP</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="system.xp.value" value="{{system.xp.value}}" data-dtype="Number" />
+                    <span> / </span>
+                    <input type="text" name="system.xp.max" value="{{system.xp.max}}" data-dtype="Number" />
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
