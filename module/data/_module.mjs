@@ -10,3 +10,5 @@ export {default as KerNethalasFeature} from "./item-feature.mjs";
 export {default as KerNethalasSpell} from "./item-spell.mjs";
 export {default as KerNethalasSkill} from "./item-skill.mjs";
 export {default as KerNethalasMastery} from "./item-mastery.mjs";
+export {default as KerNethalasDamageVulnerabilityResistance} from "./item-damage-vulnerability-resistance.mjs";
+export {default as KerNethalasArmor} from "./item-armor.mjs";

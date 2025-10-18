@@ -42,4 +42,41 @@ export default class KerNethalasMastery extends KerNethalasItemBase {
 
     return schema;
   }
+
+  prepareDerivedData() {
+    if(this.tier1.option1.chosen){
+      this.tier1Selected = this.tier1.option1;
+    }
+    else if(this.tier1.option2.chosen){
+      this.tier1Selected = this.tier1.option2;
+    }
+
+    if(this.tier2.option1.chosen){
+      this.tier2Selected = this.tier2.option1;
+    }
+    else if(this.tier2.option2.chosen){
+      this.tier2Selected = this.tier2.option2;
+    }
+
+    if(this.tier3.option1.chosen){
+      this.tier3Selected = this.tier3.option1;
+    }
+    else if(this.tier3.option2.chosen){
+      this.tier3Selected = this.tier3.option2;
+    }
+
+    if(this.tier4.option1.chosen){
+      this.tier4Selected = this.tier4.option1;
+    }
+    else if(this.tier4.option2.chosen){
+      this.tier4Selected = this.tier4.option2;
+    }
+
+    if(this.tier5.option1.chosen){
+      this.tier5Selected = this.tier5.option1;
+    }
+    else if(this.tier5.option2.chosen){
+      this.tier5Selected = this.tier5.option2;
+    }
+  }
 }

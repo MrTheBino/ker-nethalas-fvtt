@@ -35,7 +35,10 @@
     "Item": {
       "item": "Item",
       "feature": "Feature",
-      "spell": "Spell"
+      "spell": "Spell",
+      "mastery": "Mastery",
+      "damage-vulnerability-resistance": "Damage Vulnerability & Resistance",
+      "armor": "Armor"
     }
   }
 }

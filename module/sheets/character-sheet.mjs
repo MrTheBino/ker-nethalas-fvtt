@@ -12,9 +12,11 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
         tag: 'form',
         position: {
             width: 850,
-            height: 600
+            height: 800
         },
         actions: {
+            editItem: this.#handleEditItem,
+            deleteItem: this.#handleDeleteItem
         },
         form: {
             submitOnChange: true
@@ -50,6 +52,10 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
         masteries: {
             id: 'masteries',
             template: 'systems/ker-nethalas-fvtt/templates/actor/character/tab-masteries.hbs'
+        },
+        restistances: {
+            id: 'restistances',
+            template: 'systems/ker-nethalas-fvtt/templates/actor/character/tab-damage-vulnerability-resistance.hbs'
         }
     }
 
@@ -62,7 +68,8 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
             tabs:
                 [
                     { id: 'main', group: 'sheet', label: 'Main' },
-                    { id: 'masteries', group: 'sheet', label: 'Masteries' }
+                    { id: 'masteries', group: 'sheet', label: 'Masteries' },
+                    { id: 'restistances', group: 'sheet', label: 'Damage Vulnerabilities & Resistance' }
                 ],
             initial: 'main'
         }
@@ -87,11 +94,12 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
         context.skills = [];
         context.gear = [];
         context.masteries = [];
+        context.damageVulnerabilityResistances = [];
 
         context.config = CONFIG.KER_NETHALAS_FVTT;
 
         let inventory = this.options.document.items;
-        console.log(inventory);
+        
         for (let i of inventory) {
             i.img = i.img || Item.DEFAULT_ICON;
             // Append to gear.
@@ -102,6 +110,9 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
                 context.skills.push(i);
             } else if(i.type === 'mastery'){
                 context.masteries.push(i);
+            }
+            else if(i.type == "damage-vulnerability-resistance"){
+                context.damageVulnerabilityResistances.push(i);
             }
         }
 
@@ -127,14 +138,19 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
     _onRender(context, options) {
         this.#dragDrop.forEach((d) => d.bind(this.element))
 
-        const itemEditableStatsElements = this.element.querySelectorAll('.item-editable-stat')
+        const itemEditableStatsElements = this.element.querySelectorAll('.item-editable-stat');
         for (const input of itemEditableStatsElements) {
             input.addEventListener("change", event => this.handleItemStatChanged(event))
         }
 
-        const actorArrayUpdateElements = this.element.querySelectorAll('.actor-array-update')
+        const actorArrayUpdateElements = this.element.querySelectorAll('.actor-array-update');
         for (const input of actorArrayUpdateElements) {
             input.addEventListener("change", event => this.handleArrayUpdate(event))
+        }
+
+        const updateMasteryTierSelections = this.element.querySelectorAll('.update-mastery-tier-selection');
+        for (const select of updateMasteryTierSelections) {
+            select.addEventListener("change", event => this.handleMasteryTierChange(event));
         }
     }
 
@@ -162,6 +178,23 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
     }
 
 
+    async handleMasteryTierChange(ev) {
+        const mastery = ev.target.dataset.masteryId ? this.actor.items.get(ev.target.dataset.masteryId) : null;
+        const tierLevel  = ev.target.dataset.tierLevel;
+        const selectedOption = parseInt(ev.target.value);
+
+        console.log(mastery);
+
+        if(selectedOption == 0){
+            await mastery.update({ [`system.tier${tierLevel}.option1.chosen`]: false, [`system.tier${tierLevel}.option2.chosen`]: false });
+        }else if(selectedOption == 1){
+            await mastery.update({ [`system.tier${tierLevel}.option1.chosen`]: true, [`system.tier${tierLevel}.option2.chosen`]: false });
+        }else if(selectedOption == 2){
+            await mastery.update({ [`system.tier${tierLevel}.option1.chosen`]: false, [`system.tier${tierLevel}.option2.chosen`]: true });
+        }
+
+    }
+
     async handleItemStatChanged(ev) {
         const item = ev.target.dataset.itemId ? this.actor.items.get(ev.target.dataset.itemId) : null;
 
@@ -186,6 +219,32 @@ export class KerNethalasCharacterSheet extends HandlebarsApplicationMixin(ActorS
             array[index] = ev.target.value;
         }
         await this.actor.update({ [key]: array });
+    }
+
+     static async #handleEditItem(event, target) {
+        event.preventDefault();
+        const item = this.options.document.items.get(target.dataset.itemId);
+        await item.sheet.render({ force: true });
+    }
+
+    static async #handleDeleteItem(event, target) {
+        const proceed = await foundry.applications.api.DialogV2.confirm({
+            content: 'Do you really want to delete this item?',
+            rejectClose: false,
+            modal: true
+        });
+        if (proceed) {
+            if (target.dataset.itemId == undefined) {
+                const li = $(target).parents('.item');
+                const item = this.actor.items.get(li.data('itemId'));
+                item.delete();
+                li.slideUp(200, () => this.render(false));
+            } else {
+                const item = this.actor.items.get(target.dataset.itemId);
+                item.delete();
+                li.slideUp(200, () => this.render(false));
+            }
+        }
     }
 
     /**

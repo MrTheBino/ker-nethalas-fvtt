@@ -5,8 +5,11 @@
             <div "tier-option-row"><input type='text' name='system.tier{{tier.level}}.option1.name'
                     value="{{tier.option1.name}}" data-dtype='String' placeholder="Name" /></div>
             <div "tier-option-row">
-                <input type='text' name='system.tier{{tier.level}}.option1.actionType'
-                    value="{{tier.option1.actionType}}" data-dtype='String' placeholder="Action" />
+                <select name='system.tier{{tier.level}}.option1.actionType' data-dtype='String'>
+                    <option value="">-</option>
+                    <option value="1 Standard Action" {{#if (eq tier.option1.actionType "1 Standard Action")}}selected{{/if}}>1 Standard Action</option>
+                    <option value="Passive" {{#if (eq tier.option1.actionType "Passive")}}selected{{/if}}>Passive</option>
+                </select>
             </div>
             <div "tier-option-row">
                 <input type='text' name='system.tier{{tier.level}}.option1.costValue'
@@ -20,8 +23,11 @@
             <input type='text' name='system.tier{{tier.level}}.option2.name' value="{{tier.option2.name}}"
                 data-dtype='String' />
             <div "tier-option-row">
-                <input type='text' name='system.tier{{tier.level}}.option2.actionType'
-                    value="{{tier.option2.actionType}}" data-dtype='String' placeholder="Action" />
+                <select name='system.tier{{tier.level}}.option2.actionType' data-dtype='String'>
+                    <option value="">-</option>
+                    <option value="1 Standard Action" {{#if (eq tier.option2.actionType "1 Standard Action")}}selected{{/if}}>1 Standard Action</option>
+                    <option value="Passive" {{#if (eq tier.option2.actionType "Passive")}}selected{{/if}}>Passive</option>
+                </select>
             </div>
             <div "tier-option-row">
                 <input type='text' name='system.tier{{tier.level}}.option2.costValue'

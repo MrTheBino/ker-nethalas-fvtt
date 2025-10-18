@@ -12,6 +12,28 @@ export class KerNethalasItem extends Item {
     super.prepareData();
   }
 
+  static async create(data, options = {}) {
+    //make default Friendly and Linked on Creation
+    data.prototypeToken = data.prototypeToken || {};
+
+    let defaults = {};
+    let image = null;
+    
+    switch(data.type){
+      case "armor":
+        image = "systems/ker-nethalas-fvtt/assets/icons/icon-armor.svg";
+        break
+
+    }
+
+    if (image != null) {
+      data.img = image
+    }
+
+    const actor = await super.create(data, options);
+    return actor;
+  }
+
   /**
    * Prepare a data object which defines the data schema used by dice roll commands against this Item
    * @override

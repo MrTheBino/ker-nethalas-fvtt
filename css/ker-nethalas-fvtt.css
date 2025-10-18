@@ -365,5 +365,20 @@
 .system-ker-nethalas-fvtt textarea {
   width: 100%;
 }
+.system-ker-nethalas-fvtt .masteries-container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.system-ker-nethalas-fvtt .masteries-container .mastery-container {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.system-ker-nethalas-fvtt .styled-group {
+  background-color: rgba(245, 245, 220, 0.4509803922);
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
 
 /*# sourceMappingURL=ker-nethalas-fvtt.css.map */

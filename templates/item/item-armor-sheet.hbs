@@ -1,0 +1,42 @@
+<section class="tab {{tabs.form.id}} {{tabs.form.cssClass}} scrollable" id="form" data-tab="{{tabs.form.id}}"
+    data-group="{{tabs.form.group}}">
+    <div class='resource'>
+        <div class='grid grid-4col'>
+            <div class='grid-span-1'>
+                <label class='resource-label'>Type</label>
+                <select name="system.armorType">
+                    <option value="full_suit" {{#if (eq system.armorType "full_suit")}}selected{{/if}}>Full Suit</option>
+                    <option value="piecemeal_armor" {{#if (eq system.armorType "piecemeal_armor")}}selected{{/if}}>Piecemeal Armor</option>
+                    <option value="helmet" {{#if (eq system.armorType "helmet")}}selected{{/if}}>Helmet</option>
+                    <option value="shield" {{#if (eq system.armorType "shield")}}selected{{/if}}>Shield</option>
+                </select>
+            </div>
+            <div class='grid-span-1'>
+                <label class='resource-label'>Cost</label>
+                <input type='text' name='system.cost' value='{{system.cost}}' data-dtype='Number' />
+            </div>
+            <div class='grid-span-1'>
+                <label class='resource-label'>Protection</label>
+                <input type='text' name='system.protection' value='{{system.protection}}' data-dtype='Number' />
+            </div>
+            <div class='grid-span-1'>
+                <label class='resource-label'>Parry Bonus</label>
+                <input type='text' name='system.parryBonus' value='{{system.parryBonus}}' data-dtype='Number' />
+            </div>
+            <div class='grid-span-1'>
+                <label class='resource-label'>Integrity</label>
+                <select name="system.integrity"  data-dtype='Number'>
+                    <option value="4" {{#if (eq system.integrity 4)}}selected{{/if}}>D4</option>
+                    <option value="6" {{#if (eq system.integrity 6)}}selected{{/if}}>D6</option>
+                    <option value="8" {{#if (eq system.integrity 8)}}selected{{/if}}>D8</option>
+                    <option value="10" {{#if (eq system.integrity 10)}}selected{{/if}}>D10</option>
+                    <option value="12" {{#if (eq system.integrity 12)}}selected{{/if}}>D12</option>
+                    <option value="20" {{#if (eq system.integrity 20)}}selected{{/if}}>D20</option>
+                </select>
+        </div>
+        <textarea
+            name='system.notes'
+            data-dtype='String'
+            placeholder='Additional notes about this armor...'></textarea>
+    </div>
+</section>

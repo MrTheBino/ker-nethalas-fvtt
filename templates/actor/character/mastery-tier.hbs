@@ -1,10 +1,15 @@
 <div>
     <div>
         Tier {{tier.level}}
-        <select>
-            <option value="-">-</option>
-            <option value="1">{{tier.option1.name}}</option>
-            <option value="2">{{tier.option2.name}}</option>
+        <select data-mastery-id="{{mastery._id}}" class="update-mastery-tier-selection" data-tier-level="{{tier.level}}">
+            <option value="0">-</option>
+            <option value="1" {{#if tier.option1.chosen}}selected{{/if}}>{{tier.option1.name}}</option>
+            <option value="2" {{#if tier.option2.chosen}}selected{{/if}}>{{tier.option2.name}}</option>
         </select>
+        {{#if tierSelected }}
+            <div>{{tierSelected.actionType}}</div>
+            <div>{{tierSelected.costValue}}</div>
+            <div>{{tierSelected.description}}</div>
+        {{/if}}
     </div>
 </div>

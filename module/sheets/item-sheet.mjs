@@ -114,8 +114,6 @@ export class KerNethalasItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
                 relativeTo: this.document,
             }
         );
-
-        console.log(this.document);
         return context;
     }
 

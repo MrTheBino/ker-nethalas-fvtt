@@ -1,20 +1,38 @@
-.character-main-container{
+.character-main-container {
     align-items: flex-start;
 }
 
-.main-left-container{
+.main-left-container {
     flex-grow: 0.5;
     margin-right: 10px;
 }
 
-.skill_value{
+.skill_value {
     max-width: 50px;
 }
 
-.skill_marked{
+.skill_marked {
     flex-grow: 0.1;
 }
 
-textarea{
+textarea {
     width: 100%;
+}
+
+.masteries-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+    .mastery-container {
+        flex-grow: 1;
+    flex-basis: 0;
+    }
+}
+
+.styled-group{
+  background-color:#f5f5dc73;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
 }

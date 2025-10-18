@@ -4,6 +4,14 @@
 
 This is an unofficial implementation of Ker Nethalas for Foundry VTT. It's still in early development so there's nothing to install yet.
 
+# Features
+
+Items types already included:
+
+- Masteries (The Book of Mastries supported)
+- Damage Vulnerabilites & Resistances
+- Armor
+  
 # Development
 
 ## Compiling the CSS

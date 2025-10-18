@@ -46,6 +46,8 @@ Hooks.once('init', function () {
     item: models.KerNethalasItem,
     skill: models.KerNethalasSkill,
     mastery: models.KerNethalasMastery,
+    "damage-vulnerability-resistance": models.KerNethalasDamageVulnerabilityResistance,
+    "armor": models.KerNethalasArmor,
   }
 
   CONFIG.ActiveEffect.legacyTransferral = false;

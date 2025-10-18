@@ -3,6 +3,6 @@
     "types": ["character", "npc"]
   },
   "Item": {
-    "types": ["item","skill","mastery"]
+    "types": ["item","skill","mastery","damage-vulnerability-resistance","armor"]
   }
 }

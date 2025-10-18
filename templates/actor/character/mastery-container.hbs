@@ -1,10 +1,18 @@
 <div class="mastery-container">
-    <h2>{{mastery.name}}</h2>
+    <strong>{{mastery.name}} <a data-action="editItem" data-item-id="{{mastery.id}}">
+            <i class='fas fa-pencil'></i></a> <a data-action="deleteItem" data-item-id='{{mastery.id}}'>
+            <i class='fas fa-trash'></i>
+        </a></strong>
     <div class="tier-row">
-        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier1 mastery=mastery }}
-        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier2 mastery=mastery }}
-        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier3 mastery=mastery }}
-        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier4 mastery=mastery }}
-        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier5 mastery=mastery }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier1
+        mastery=mastery tierSelected=mastery.system.tier1Selected }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier2
+        mastery=mastery tierSelected=mastery.system.tier2Selected }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier3
+        mastery=mastery tierSelected=mastery.system.tier3Selected }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier4
+        mastery=mastery tierSelected=mastery.system.tier4Selected }}
+        {{> 'systems/ker-nethalas-fvtt/templates/actor/character/mastery-tier.hbs' tier=mastery.system.tier5
+        mastery=mastery tierSelected=mastery.system.tier5Selected }}
     </div>
 </div>
